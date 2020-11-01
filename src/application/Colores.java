@@ -19,7 +19,7 @@ public class Colores extends Application {
 
 	public void start(Stage primaryStage) {
 		try {
-			VBox root = new VBox();
+			final VBox root = new VBox();
 			HBox seccionBotones = new HBox();
 			seccionBotones.setSpacing(40);
                         seccionBotones.setAlignment(Pos.CENTER);
@@ -49,6 +49,7 @@ public class Colores extends Application {
             
 			seccionBotones.getChildren().addAll(color1, color2, color3);
 			root.getChildren().add(seccionBotones);
+			primaryStage.setTitle("Tarea_aspectos");
 			primaryStage.setScene(sc);
 			primaryStage.show();
 		} catch(Exception e) {
