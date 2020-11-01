@@ -1,0 +1,6 @@
+
+
+
+public abstract aspect Observer{
+	
+}
