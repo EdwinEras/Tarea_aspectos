@@ -1,5 +1,6 @@
-package application;
+package main;
 
+import clases.ButtonSubject;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -13,6 +14,7 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 public class Colores extends Application {
@@ -22,33 +24,39 @@ public class Colores extends Application {
 			final VBox root = new VBox();
 			HBox seccionBotones = new HBox();
 			seccionBotones.setSpacing(40);
-                        seccionBotones.setAlignment(Pos.CENTER);
-			Button color1 = new Button("Amarillo");
-			Button color2 = new Button("Azul");
-			Button color3 = new Button("Rojo");
+            seccionBotones.setAlignment(Pos.CENTER);
+			ButtonSubject color1 = new ButtonSubject("Amarillo","yellow");
+			ButtonSubject color2 = new ButtonSubject("Azul","blue");
+			ButtonSubject color3 = new ButtonSubject("Rojo","red");
+			
 			Scene sc = new Scene(root, 600, 600);
+			
 			
 			color1.setOnAction(new EventHandler<ActionEvent>(){
                 @Override
                 public void handle(ActionEvent event) {
-                    amarillo(root);
+                    cambiarColor(root,"yellow");
+                    
                 }
 			});
+			
 			color2.setOnAction(new EventHandler<ActionEvent>(){
                 @Override
                 public void handle(ActionEvent event) {
-                    azul(root);
+                	cambiarColor(root,"blue");
+                	
                 }
 			});
             color3.setOnAction(new EventHandler<ActionEvent>(){
                 @Override
                 public void handle(ActionEvent event) {
-                    rojo(root);
+                	cambiarColor(root,"red");
                 }
 			});
             
 			seccionBotones.getChildren().addAll(color1, color2, color3);
 			root.getChildren().add(seccionBotones);
+			
 			primaryStage.setTitle("Tarea_aspectos");
 			primaryStage.setScene(sc);
 			primaryStage.show();
@@ -61,22 +69,11 @@ public class Colores extends Application {
 		launch(args);
 	}
 	
-	public void amarillo(VBox root) {
-		BackgroundFill background_fill = new BackgroundFill(Color.YELLOW, CornerRadii.EMPTY, Insets.EMPTY); 
+	public void cambiarColor(VBox root,String color) {
+		BackgroundFill background_fill = new BackgroundFill(Color.valueOf(color), CornerRadii.EMPTY, Insets.EMPTY); 
         Background background = new Background(background_fill); 
         root.setBackground(background);
 	}
 	
-	public void azul(VBox root) {
-		BackgroundFill background_fill = new BackgroundFill(Color.BLUE, CornerRadii.EMPTY, Insets.EMPTY); 
-        Background background = new Background(background_fill); 
-        root.setBackground(background);
-	}
-	
-	public void rojo(VBox root) {
-		BackgroundFill background_fill = new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY); 
-        Background background = new Background(background_fill); 
-        root.setBackground(background);
-	}
 	
 }
