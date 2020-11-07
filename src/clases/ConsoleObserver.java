@@ -4,9 +4,8 @@ public class ConsoleObserver implements ObserverInterface {
 	
 	@Override
 	public void update(String color) {
-		System.out.println("Se cambió el color del fondo de la ventana a "+color);
+		System.out.println("Se cambiï¿½ el color del fondo de la ventana a "+color);
 		
 	}
-
 
 }
